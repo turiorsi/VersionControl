@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,8 +19,9 @@ namespace UserMaintenance
         public Form1()
         {
             InitializeComponent();
-            lblLastName.Text = Resource1.LastName; // label1
-            lblFirstName.Text = Resource1.FirstName; // label2
+            lblLastName.Text = Resource1.FullName; // label1
+            btnFajl.Text = Resource1.File;  //így nevezem ét a buttont a property nélkül 
+
             btnAdd.Text = Resource1.Add; // button1
 
             listUsers.DataSource = users; //amiket beleírok a usersbe azt a listboxba teszi bele
@@ -31,10 +33,30 @@ namespace UserMaintenance
         {
             var u = new User() //betöltöm az adatokat amit a textboxokba írunk
             {
-                LastName = txtLastName.Text,
-                FirstName = txtFirstName.Text
+                FullName = txtLastName.Text,
+               
             };
             users.Add(u);
+        }
+
+        private void btnFajl_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog sfd = new SaveFileDialog(); //mentés
+            if (sfd.ShowDialog()!=DialogResult.OK) //ha ok-kal zárom b akkor mentse el 
+            {
+                return;
+            }
+
+            using (StreamWriter sw = new StreamWriter(sfd.FileName,true,Encoding.UTF8)) //fájlba írás
+            {
+                foreach (var item in users)
+                {
+                    
+                    //sw.Write(item.ID);
+                    sw.Write(item.FullName); 
+
+                }
+            }
         }
     }
 }
