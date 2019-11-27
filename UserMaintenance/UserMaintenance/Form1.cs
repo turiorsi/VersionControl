@@ -21,7 +21,7 @@ namespace UserMaintenance
             InitializeComponent();
             lblLastName.Text = Resource1.FullName; // label1
             btnFajl.Text = Resource1.File;  //így nevezem ét a buttont a property nélkül 
-
+            btndelete.Text = Resource1.delete;
             btnAdd.Text = Resource1.Add; // button1
 
             listUsers.DataSource = users; //amiket beleírok a usersbe azt a listboxba teszi bele
@@ -57,6 +57,11 @@ namespace UserMaintenance
 
                 }
             }
+        }
+
+        private void btndelete_Click(object sender, EventArgs e)
+        {
+            users.RemoveAt(listUsers.SelectedIndex);
         }
     }
 }

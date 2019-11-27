@@ -35,6 +35,7 @@
             this.txtFirstName = new System.Windows.Forms.TextBox();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnFajl = new System.Windows.Forms.Button();
+            this.btndelete = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listUsers
@@ -97,11 +98,22 @@
             this.btnFajl.UseVisualStyleBackColor = true;
             this.btnFajl.Click += new System.EventHandler(this.btnFajl_Click);
             // 
+            // btndelete
+            // 
+            this.btndelete.Location = new System.Drawing.Point(295, 207);
+            this.btndelete.Name = "btndelete";
+            this.btndelete.Size = new System.Drawing.Size(166, 23);
+            this.btndelete.TabIndex = 7;
+            this.btndelete.Text = "button1";
+            this.btndelete.UseVisualStyleBackColor = true;
+            this.btndelete.Click += new System.EventHandler(this.btndelete_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btndelete);
             this.Controls.Add(this.btnFajl);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.txtFirstName);
@@ -125,6 +137,7 @@
         private System.Windows.Forms.TextBox txtFirstName;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnFajl;
+        private System.Windows.Forms.Button btndelete;
     }
 }
 
